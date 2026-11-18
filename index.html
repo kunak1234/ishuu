@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>For Ishuuu · Happy Princess Day</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Quicksand:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;min-height:100%;overflow-x:hidden;font-family:Quicksand,system-ui,sans-serif;color:#7a2e52;background:linear-gradient(160deg,#ffe3ef,#fbe8ff 50%,#e6f0ff);text-align:center;position:relative}
+.top{padding-top:14px}
+.crown{font-size:44px;display:inline-block;animation:bob 2.4s ease-in-out infinite}
+.sub{font-size:15px;letter-spacing:.14em;text-transform:uppercase;margin:0;color:#b44a82}
+h1{font-family:'Dancing Script',cursive;font-size:62px;margin:0;line-height:1.05;background:linear-gradient(90deg,#ff5c9a,#b18cff,#ff5c9a);background-size:200%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 4s linear infinite}
+.hint{font-size:14px;margin:4px 0 0;opacity:.8}
+#stage{max-width:420px;margin:0 auto;padding:0 8px}
+svg{width:100%;height:auto;display:block;overflow:visible}
+.st{fill:none;stroke:#5fb57a;stroke-width:4;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;animation:grow 1s ease-out forwards}
+.lf{fill:#78c993;opacity:0;animation:fade .8s forwards}
+.pp{opacity:0;animation:fade .8s .2s forwards}
+.fl{cursor:pointer}
+.in{transform-box:fill-box;transform-origin:center;transform:scale(0);animation:bloom 1s cubic-bezier(.34,1.56,.64,1) forwards}
+.band{fill:none;stroke:#ff6fa5;stroke-width:8;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;animation:grow 1s 4.3s forwards}
+.bow{transform-box:fill-box;transform-origin:center;transform:scale(0);animation:tie 1.1s cubic-bezier(.34,1.56,.64,1) 4.9s forwards}
+.btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;padding:6px 12px 28px}
+button{font:600 15px Quicksand,system-ui,sans-serif;color:#fff;background:linear-gradient(135deg,#ff7fb0,#b18cff);border:0;border-radius:99px;padding:11px 20px;box-shadow:0 6px 16px rgba(255,92,154,.3)}
+#wish{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,40px);opacity:0;pointer-events:none;width:min(88vw,340px);background:#fff;color:#7a2e52;border-radius:20px;padding:16px 18px;font-size:17px;box-shadow:0 10px 30px rgba(180,74,130,.3);transition:.4s;z-index:30}
+#wish.on{transform:translate(-50%,0);opacity:1}
+.fx{position:fixed;pointer-events:none;z-index:5;top:0}
+.up{top:auto;bottom:-40px;animation:up 9s linear forwards}
+.dn{top:-40px;animation:dn 9s linear forwards}
+.sp{position:fixed;pointer-events:none;z-index:40;animation:spk .9s ease-out forwards}
+.ov{position:fixed;inset:0;z-index:50;display:none;align-items:center;justify-content:center;background:rgba(255,230,242,.92);padding:20px;box-sizing:border-box}
+.ov.on{display:flex}
+#intro{background:linear-gradient(160deg,#ffe3ef,#fbe8ff 50%,#e6f0ff);flex-direction:column;gap:6px;z-index:60}
+#intro .big{font-size:80px;animation:bob 2s ease-in-out infinite}
+.card{max-height:82vh;overflow-y:auto;background:#fff;border-radius:22px;padding:26px 24px;max-width:340px;box-shadow:0 14px 40px rgba(180,74,130,.3);text-align:left;font-size:17px;line-height:1.55;animation:pop .6s cubic-bezier(.34,1.56,.64,1)}
+.card h2{font-family:'Dancing Script',cursive;font-size:34px;margin:0 0 8px;color:#e8456f}
+.card p{margin:0 0 10px}
+@keyframes bob{50%{transform:translateY(-6px)}}
+@keyframes shine{to{background-position:200%}}
+@keyframes grow{to{stroke-dashoffset:0}}
+@keyframes fade{to{opacity:1}}
+@keyframes bloom{from{transform:scale(0) rotate(-60deg)}to{transform:scale(1) rotate(0)}}
+@keyframes tie{from{transform:scale(0) rotate(-140deg)}to{transform:scale(1) rotate(0)}}
+@keyframes up{from{transform:translate(0,0)}25%{transform:translate(30px,-28vh)}50%{transform:translate(-30px,-56vh)}to{transform:translate(0,-115vh)}}
+@keyframes dn{from{transform:translate(0,0) rotate(0)}50%{transform:translate(40px,55vh) rotate(180deg)}to{transform:translate(-20px,112vh) rotate(360deg)}}
+@keyframes spk{from{opacity:1;transform:translate(0,0) scale(.6)}to{opacity:0;transform:translate(var(--x),var(--y)) scale(1.3)}}
+@keyframes pop{from{transform:scale(.6);opacity:0}to{transform:scale(1);opacity:1}}
+</style></head>
+<body>
+<div id="intro" class="ov on"><div class="big">💐</div><p class="sub">A little something</p><h1>for Ishuuu</h1><p class="hint" style="margin-bottom:18px">Happy Princess Day 👑</p><button id="go">Tap to open 💖</button></div>
+
+<div class="top"><div class="crown">👑</div><p class="sub">Happy Princess Day</p><h1>Ishuuu</h1><p class="hint">Tap the flowers to read your wishes 🌷</p></div>
+<div id="stage"><svg id="bq" viewBox="0 0 400 560"></svg></div>
+<div class="btns"><button id="lbtn">💌 A letter for you</button><button id="again">🔁 Bloom again</button><button id="mus">🎵 Music on</button></div>
+<div id="wish"></div>
+<div id="letter" class="ov"><div class="card"><h2>Dear Ishuuu,</h2><p>Today is your day, my princess 👑</p><p>Real flowers fade, so I made you a bouquet that blooms every single time you open it.</p><p>Every petal is a little wish for you: more laughter, softer days, and everything your heart dreams of. Never forget how special you are.</p><p>I wanted to come and greet you, but every time I ask, you say it may not work out that day. I felt a little sad about it, but I don’t want to ask too much and make things complicated, so I stopped asking to meet. I’m okay with it. Whenever you say it’s time, that’s when we’ll meet.</p><p>I miss you so much 😊</p><p>Happy Princess Day 💖</p><p style="text-align:right;margin:0"><b>— Kunal</b></p></div></div>
+
+<script>
+const F=[[200,150,30,0,'#ffffff','#ffc2dc'],[130,195,26,1,'#ff8fb7','#ff5c9a'],[272,195,26,1,'#cdb4ff','#a483f5'],[85,262,24,1,'#ffd1e0','#ff9fc0'],[318,262,24,0,'#fff3b0','#ffd966'],[160,265,28,0,'#ffb3d1','#ff7fb0'],[242,262,26,1,'#ff9bb8','#e8456f'],[200,335,26,1,'#d9c2ff','#b18cff'],[125,340,24,0,'#ffffff','#ffd1e0'],[278,340,24,0,'#ffc2a8','#ff9d7d']];
+const W=['You’re the princess of every room you walk into 👑','May your smile never run out of reasons ✨','You deserve soft mornings and sweet surprises 🌷','Your laugh is my favourite sound 💖','Dream big, you’re capable of magic 🦋','Today, the whole world is dressed in pink for you 🌷','You make ordinary days feel special 💫','May every wish you make come true 🌟','You’re loved more than you know 💗','Stay exactly as lovely as you are 🌷'];
+const bq=document.getElementById('bq');
+function render(){
+let s='<defs><linearGradient id="pp" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff6fa"/><stop offset="1" stop-color="#ffc9de"/></linearGradient></defs>';
+F.forEach((f,i)=>{s+=`<path class="st" pathLength="1" style="animation-delay:${i*.15}s" d="M200 500Q${(200+f[0])/2} ${(500+f[1])/2+40} ${f[0]} ${f[1]+(f[3]?f[2]*.7:0)}"/>`});
+[[150,430,-30],[250,430,30],[168,385,-50],[232,385,50]].forEach((l,i)=>{s+=`<ellipse class="lf" cx="${l[0]}" cy="${l[1]}" rx="9" ry="24" transform="rotate(${l[2]} ${l[0]} ${l[1]})" style="animation-delay:${1+i*.2}s"/>`});
+F.forEach((f,i)=>{const[x,y,r,t,a,b]=f;let p='';
+if(t){const q=m=>`M${m*r*.1} ${r*.7}C${m*r*.95} ${r*.4} ${m*r*.85} ${-r*.6} ${m*r*.45} ${-r*.95}C${m*r*.35} ${-r*.3} ${m*r*.2} ${r*.2} ${m*r*.1} ${r*.7}Z`;
+p=`<path d="${q(-1)}" fill="${a}"/><path d="${q(1)}" fill="${a}"/><path d="M0 ${r*.7}C${-r*.75} ${r*.5} ${-r*.7} ${-r*.5} 0 ${-r*1.1}C${r*.7} ${-r*.5} ${r*.75} ${r*.5} 0 ${r*.7}Z" fill="${b}"/><path d="M0 ${r*.6}L0 ${-r*.8}" stroke="#fff" stroke-opacity=".35" stroke-width="2" stroke-linecap="round"/>`}
+else{for(let k=0;k<6;k++)p+=`<g transform="rotate(${k*60})"><path d="M0 0C${r*.3} ${-r*.35} ${r*.22} ${-r*.8} 0 ${-r*1.15}C${-r*.22} ${-r*.8} ${-r*.3} ${-r*.35} 0 0Z" fill="${k%2?a:b}"/><path d="M0 ${-r*.1}L0 ${-r*.8}" stroke="#fff" stroke-opacity=".5" stroke-width="1.5"/><circle cx="${-r*.06}" cy="${-r*.45}" r="1.6" fill="#c2456f"/><circle cx="${r*.07}" cy="${-r*.62}" r="1.6" fill="#c2456f"/></g>`;
+for(let k=0;k<5;k++){const an=(k*72+20)*Math.PI/180;p+=`<line x1="0" y1="0" x2="${Math.sin(an)*r*.5}" y2="${-Math.cos(an)*r*.5}" stroke="#8ab86a" stroke-width="1.5"/><circle cx="${Math.sin(an)*r*.5}" cy="${-Math.cos(an)*r*.5}" r="2.6" fill="#ff9f43"/>`}}
+s+=`<g class="fl" data-i="${i}" transform="translate(${x} ${y})"><g class="in" style="animation-delay:${.8+i*.35}s">${p}</g><circle r="${r+8}" fill="transparent"/></g>`});
+s+='<polygon class="pp" points="85,395 315,395 224,545 176,545" fill="url(#pp)" stroke="#ffb0cb" stroke-width="2"/>';
+s+='<path class="band" pathLength="1" d="M122 408Q200 428 278 408"/>';
+s+='<g class="bow"><path d="M200 418C150 380 128 432 190 428Z" fill="#ff6fa5"/><path d="M200 418C250 380 272 432 210 428Z" fill="#ff6fa5"/><path d="M196 421L168 475L188 463L196 488Z" fill="#ff8fb9"/><path d="M204 421L232 475L212 463L204 488Z" fill="#ff8fb9"/><circle cx="200" cy="421" r="9" fill="#e83e80"/></g>';
+bq.innerHTML=s;
+setTimeout(()=>{const r=bq.getBoundingClientRect();for(let i=0;i<14;i++)spark(r.left+r.width/2+(Math.random()-.5)*200,r.top+r.height*.4+(Math.random()-.5)*160)},6200);
+}
+function spark(x,y){for(let i=0;i<6;i++){const e=document.createElement('span');e.className='sp';e.textContent=['✨','💖','🌷'][i%3];e.style.left=x+'px';e.style.top=y+'px';e.style.setProperty('--x',(Math.random()-.5)*110+'px');e.style.setProperty('--y',(Math.random()-.8)*110+'px');document.body.appendChild(e);setTimeout(()=>e.remove(),950)}}
+const wish=document.getElementById('wish');let wt,wi=0;
+bq.addEventListener('click',e=>{const g=e.target.closest('.fl');if(!g)return;wish.textContent=W[(+g.dataset.i+wi)%W.length];wi++;wish.classList.add('on');spark(e.clientX,e.clientY);clearTimeout(wt);wt=setTimeout(()=>wish.classList.remove('on'),4200)});
+function drift(cls,list,ms){setInterval(()=>{const e=document.createElement('span');e.className='fx '+cls;e.textContent=list[Math.random()*list.length|0];e.style.left=Math.random()*94+'vw';e.style.fontSize=(14+Math.random()*16)+'px';e.style.animationDuration=(7+Math.random()*6)+'s';document.body.appendChild(e);setTimeout(()=>e.remove(),14000)},ms)}
+drift('up',['🦋','💖','💗','🦋','🤍'],1300);drift('dn',['🌷','🌷','🤍','✨'],800);
+let ac,tm,on=false;const sc=[261.6,293.7,329.6,392,440,523.3,587.3];
+function music(){try{ac=ac||new(window.AudioContext||window.webkitAudioContext)();ac.resume()}catch(e){return}
+on=true;let i=2;clearInterval(tm);tm=setInterval(()=>{i=Math.max(0,Math.min(6,i+[-2,-1,1,2][Math.random()*4|0]));const t=ac.currentTime,o=ac.createOscillator(),g=ac.createGain();o.type='sine';o.frequency.value=sc[i];g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.07,t+.05);g.gain.exponentialRampToValueAtTime(.001,t+1.6);o.connect(g);g.connect(ac.destination);o.start();o.stop(t+1.7)},520);mus.textContent='🎵 Music on'}
+function nomusic(){on=false;clearInterval(tm);mus.textContent='🔇 Music off'}
+const mus=document.getElementById('mus');
+mus.onclick=()=>on?nomusic():music();
+document.getElementById('go').onclick=()=>{document.getElementById('intro').classList.remove('on');render();music()};
+document.getElementById('again').onclick=render;
+const lt=document.getElementById('letter');
+document.getElementById('lbtn').onclick=()=>lt.classList.add('on');
+lt.onclick=()=>lt.classList.remove('on');
+</script></body></html>
